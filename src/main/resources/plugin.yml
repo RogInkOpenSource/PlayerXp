@@ -6,12 +6,19 @@ depend:
   - ProtocolLib
 
 permissions:
-  pxp.use:
-    description: Use PlayerXp commands
+  pxp.read:
+    description: Get current PlayerXp value
+    default: true
+  pxp.write:
+    description: Set current PlayerXp value
     default: op
 
 commands:
-  pxp:
+  pxpr:
+    description: Read PlayerXp
+    usage: /pxpr <level|bar> [player=self]
+    permission: pxp.read
+  pxpw:
     description: Master command of PlayerXp
-    usage: /pxp <get|set> <level|bar> [player=self]
-    permission: pxp.use
+    usage: /pxpw <level|bar> <value> [player=self]
+    permission: pxp.write

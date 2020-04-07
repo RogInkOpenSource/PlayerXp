@@ -45,6 +45,16 @@
             <version>4.5.0</version>
         </dependency>
         <dependency>
+            <groupId>tech.dsstudio.minecraft</groupId>
+            <artifactId>PlayerData</artifactId>
+            <version>0.3-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>tech.dsstudio</groupId>
+            <artifactId>Dingbats</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>16.0.1</version>
