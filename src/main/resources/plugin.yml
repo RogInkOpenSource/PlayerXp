@@ -1,0 +1,17 @@
+name: PlayerXp
+version: 0.1-SNAPSHOT
+main: tech.dsstudio.minecraft.xp.PlayerXpApi
+author: dousha99
+depend:
+  - ProtocolLib
+
+permissions:
+  pxp.use:
+    description: Use PlayerXp commands
+    default: op
+
+commands:
+  pxp:
+    description: Master command of PlayerXp
+    usage: /pxp <get|set> <level|bar> [player=self]
+    permission: pxp.use
