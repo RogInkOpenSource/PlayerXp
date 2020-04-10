@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerExpChangeEvent;
 import org.jetbrains.annotations.NotNull;
+import tech.dsstudio.dingbats.Concealed;
 import tech.dsstudio.minecraft.playerdata.PlayerData;
 import tech.dsstudio.minecraft.playerdata.driver.PlayerDataStorage;
 
@@ -50,6 +51,18 @@ public class CoreLogic implements Listener {
 		float newXp = (float) Math.max(0.0, Math.min(1.0, value));
 		data.set(PLAYER_XP_KEY, newXp);
 		sendPacket(player, newXp);
+	}
+
+	/**
+	 * Set the player level.
+	 *
+	 * @param player Player
+	 * @param value A value between 1 to 255. Clamping is applied.
+	 */
+	public void setPlayerLevel(@NotNull Player player, int value) {
+		PlayerData data = storage.get(player.getUniqueId());
+		data.set(PLAYER_LEVEL_KEY, Math.max(1, Math.min(255, value)));
+		sendPacket(player, value);
 	}
 
 	@EventHandler
@@ -97,6 +110,6 @@ public class CoreLogic implements Listener {
 
 	private PlayerDataStorage storage;
 	private Set<UUID> activePlayers = ConcurrentHashMap.newKeySet();
-	private static final String PLAYER_XP_KEY = "pxpXpValue";
-	private static final String PLAYER_LEVEL_KEY = "pxpLevelValue";
+	public static final String PLAYER_XP_KEY = "pxpXpValue";
+	public static final String PLAYER_LEVEL_KEY = "pxpLevelValue";
 }
