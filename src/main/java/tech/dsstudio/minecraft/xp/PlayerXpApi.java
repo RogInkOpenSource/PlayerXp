@@ -10,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import tech.dsstudio.dingbats.Concealed;
 import tech.dsstudio.minecraft.playerdata.driver.PlayerDataStorage;
+import tech.dsstudio.minecraft.playerdata.events.RequestForStorageEvent;
 import tech.dsstudio.minecraft.playerdata.events.StorageReadyEvent;
 
 public class PlayerXpApi extends JavaPlugin implements Listener {
@@ -19,6 +20,7 @@ public class PlayerXpApi extends JavaPlugin implements Listener {
 		pm = ProtocolLibrary.getProtocolManager();
 		instance = this;
 		getServer().getPluginManager().registerEvents(this, this);
+		getServer().getPluginManager().callEvent(new RequestForStorageEvent());
 	}
 
 	@Override

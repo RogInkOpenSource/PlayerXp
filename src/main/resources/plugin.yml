@@ -4,6 +4,7 @@ main: tech.dsstudio.minecraft.xp.PlayerXpApi
 author: dousha99
 depend:
   - ProtocolLib
+  - PlayerData
 
 permissions:
   pxp.toggle:
