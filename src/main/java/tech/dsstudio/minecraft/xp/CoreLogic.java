@@ -38,6 +38,9 @@ public class CoreLogic implements Listener {
 
 	public void removePlayer(@NotNull Player player) {
 		activePlayers.remove(player.getUniqueId());
+		int level = player.getExpToLevel();
+		float xp = player.getExp();
+		sendPacket(player, level, xp);
 	}
 
 	/**

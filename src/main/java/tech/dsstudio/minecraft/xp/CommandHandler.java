@@ -12,6 +12,9 @@ public class CommandHandler {
 	}
 
 	public boolean handleGet(@NotNull CommandSender who, @NotNull String[] args) {
+		if (args.length < 1) {
+			return false;
+		}
 		String playerName;
 		if (args.length < 2) {
 			if (who instanceof Player) {
@@ -47,6 +50,9 @@ public class CommandHandler {
 	}
 
 	public boolean handleSet(@NotNull CommandSender who, @NotNull String[] args) {
+		if (args.length < 2) {
+			return false;
+		}
 		String playerName;
 		if (args.length < 3) {
 			if (who instanceof Player) {
@@ -77,6 +83,35 @@ public class CommandHandler {
 			return false;
 		}
 		who.sendMessage("Value set");
+		return true;
+	}
+
+	public boolean handleToggle(@NotNull CommandSender who, @NotNull String[] args) {
+		if (args.length < 1) {
+			return false;
+		}
+		String playerName;
+		if (args.length < 2) {
+			if (who instanceof Player) {
+				playerName = who.getName();
+			} else {
+				who.sendMessage("Specify a player");
+				return false;
+			}
+		} else {
+			playerName = args[1];
+		}
+		Player player = api.getServer().getPlayer(playerName);
+		switch (args[0]) {
+			case "on":
+				api.getLogic().addPlayer(player);
+				break;
+			case "off":
+				api.getLogic().removePlayer(player);
+				break;
+			default:
+				return false;
+		}
 		return true;
 	}
 

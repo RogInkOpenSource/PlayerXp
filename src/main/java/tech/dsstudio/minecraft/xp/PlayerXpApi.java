@@ -24,6 +24,8 @@ public class PlayerXpApi extends JavaPlugin implements Listener {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		switch (command.getName()) {
+			case "pxp":
+				return handler.handleToggle(sender, args);
 			case "pxpr":
 				return handler.handleGet(sender, args);
 			case "pxpw":
