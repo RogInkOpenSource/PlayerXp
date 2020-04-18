@@ -27,7 +27,7 @@ public class CoreLogic implements Listener {
 		}
 		PlayerData data = storage.get(player.getUniqueId());
 		if (!data.hasKey(PLAYER_XP_KEY)) {
-			data.set(PLAYER_XP_KEY, 1.0);
+			data.set(PLAYER_XP_KEY, 1.0f);
 		}
 		sendPacket(player, data.getFloat(PLAYER_XP_KEY));
 		if (!data.hasKey(PLAYER_LEVEL_KEY)) {
